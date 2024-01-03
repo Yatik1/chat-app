@@ -1,9 +1,10 @@
 import React from 'react'
+import { Button } from '@chakra-ui/react'
 
 const App = () => {
   return (
     <div className='bg-blue-500'>
-        Chat App 
+        <Button >Button</Button>
     </div>
   )
 }
