@@ -4,7 +4,7 @@ import {Routes ,Route} from "react-router-dom"
 import { ChatPage, Home } from './pages'
 const App = () => {
   return (
-    <div className='bg-blue-950 h-screen text-white'>
+    <div className='bg-[whitesmoke] text-black h-screen w-full min-h-[100vh] flex'>
         {/* <Button colorSchema='whiteAlpha'>Button</Button> */}
 
     <Routes>
