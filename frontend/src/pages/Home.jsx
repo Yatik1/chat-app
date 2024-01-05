@@ -21,12 +21,9 @@ const Home = () => {
       fontWeight='bold'
       w="100%"
       m="40px 0 15px 0"
-      border="none"
-      borderRadius="xl"
-      borderWidth="1px"
     >
       <Text fontSize="4xl">
-        Chazify 🔥
+        Chazily 🔥
       </Text>
     </Box>
     <Box 
@@ -36,8 +33,8 @@ const Home = () => {
       border='1px'
       borderColor='gray.300'
       >
-      <Tabs isFitted variant="soft-rounded">
-        <TabList mb="1em" p={2}>
+      <Tabs size='md' isFitted variant="soft-rounded">
+        <TabList mb="1em" p={1}>
           <Tab mr={2}
             _selected={{ color: 'white', bg: 'blue.500' }}
             _hover={{ color: 'white', bg: 'blue.500' }}
