@@ -111,7 +111,7 @@ const Login = () => {
       >
         Login
       </Button>
-      {/* <Button
+      <Button
         variant="outline"
         colorScheme="red"
         _hover={{color:'white' , bg:'red'  }}
@@ -122,7 +122,7 @@ const Login = () => {
         }}
       >
         Get Guest User Credentials
-      </Button> */}
+      </Button>
     </VStack>
 
   )
