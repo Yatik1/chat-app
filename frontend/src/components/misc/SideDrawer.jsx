@@ -1,4 +1,5 @@
-import { useState } from 'react';
+// import { useState } from 'react';
+import {useNavigate} from 'react-router-dom';
 import { ChatState } from '../../context/ChatProvider';
 
 import { Box, Text } from "@chakra-ui/layout";
@@ -13,6 +14,7 @@ import {
   MenuList,
 } from "@chakra-ui/menu";
 import { Avatar } from "@chakra-ui/avatar";
+import ProfileModal from './ProfileModal';
 
 
 const SideDrawer = () => {
@@ -23,6 +25,12 @@ const SideDrawer = () => {
   // const [loadingChat, setLoadingChat] = useStateeState(false);
 
   const {user} = ChatState()
+  const navigate = useNavigate()
+
+  const logoutHandler = () => {
+    localStorage.removeItem("userInfo")
+    navigate("/")
+  }
 
   return (
     <>
@@ -38,7 +46,7 @@ const SideDrawer = () => {
          <Tooltip label="Search Users to chat" hasArrow placement="bottom-end">
            <Button variant="ghost" >
              <SearchIcon />
-             <Text d={{ base: "none", md: "flex" }} px={4}>
+             <Text display={{ base: "none", md: "flex" }} px={4}>
                Search User
              </Text>
            </Button>
@@ -65,9 +73,11 @@ const SideDrawer = () => {
                 />
             </MenuButton>
             <MenuList>
-              <MenuItem>My Profile</MenuItem>
+              <ProfileModal user={user}>
+                <MenuItem>My Profile</MenuItem>
+              </ProfileModal>
               <MenuDivider />
-              <MenuItem>Logout</MenuItem>
+              <MenuItem onClick={logoutHandler}>Logout</MenuItem>
             </MenuList>
            </Menu>
 
