@@ -1,6 +1,7 @@
 import React from 'react'
 import {Routes ,Route} from "react-router-dom"
 import { ChatPage, Home } from './pages'
+import './app.css' 
 
 const App = () => {
   return (
