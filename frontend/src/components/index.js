@@ -5,6 +5,8 @@ import ChatBox from "./misc/ChatBox"
 import MyChats from "./misc/MyChats"
 import SideDrawer from "./misc/SideDrawer"
 import ProfileModal from "./misc/ProfileModal"
+import ChatLoading from "./ChatLoading"
+import UserListItem from "./userAvatar/UserListItem"
 
 export {
     Login ,
@@ -12,5 +14,7 @@ export {
     ChatBox,
     MyChats,
     SideDrawer,
-    ProfileModal
+    ProfileModal,
+    ChatLoading,
+    UserListItem
 }
