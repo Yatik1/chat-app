@@ -7,16 +7,17 @@ import { FormControl, FormLabel } from "@chakra-ui/form-control";
 import { Input, InputGroup, InputRightElement } from "@chakra-ui/input";
 import { VStack } from "@chakra-ui/layout";
 import { useToast } from "@chakra-ui/react";
+import { ChatState } from "../../context/ChatProvider";
 
 const Login = () => {
 
   
   const toast = useToast();
   const navigate = useNavigate();
+  const { setUser } = ChatState();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
   const [show, setShow] = useState(false);
   const [loading, setLoading] = useState(false);
 
@@ -58,7 +59,8 @@ const Login = () => {
         position: "bottom",
       });
       
-      await localStorage.setItem("userInfo", JSON.stringify(data));
+      setUser(data);
+      localStorage.setItem("userInfo", JSON.stringify(data));
       setLoading(false);
       navigate("/chats");
 
