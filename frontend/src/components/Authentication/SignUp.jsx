@@ -11,9 +11,6 @@ import { useToast } from "@chakra-ui/toast";
 
 const SignUp = () => {
  
-  const toast = useToast();
-  const navigate = useNavigate();
-
   const [show, setShow] = useState(false);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -22,6 +19,8 @@ const SignUp = () => {
   const [pic, setPic] = useState("");
   const [picLoading, setPicLoading] = useState(false);
 
+  const toast = useToast();
+  const navigate = useNavigate();
 
   const handleClick = () => setShow(!show);
 
@@ -67,16 +66,15 @@ const SignUp = () => {
         )
         console.log(data);
         toast({
-          title: "Registration Successful",
+          title: "Your Account successfully created , now user can loggin",
           status: "success",
           duration: 5000,
           isClosable: true,
           position: "bottom",
         })
-
+        
         localStorage.setItem("userInfo", JSON.stringify(data));
         setPicLoading(false);
-        navigate("/chats");
 
     } catch (error) {
       toast({
@@ -135,6 +133,7 @@ const SignUp = () => {
       return;
     }
  }
+ 
   return (
     <VStack spacing="5px">
     <FormControl id="first-name" isRequired>
