@@ -1,13 +1,11 @@
 import { useState } from "react";
 import axios from "axios";
-
-import {useNavigate} from 'react-router-dom';
 import { Button } from "@chakra-ui/button";
 import { FormControl, FormLabel } from "@chakra-ui/form-control";
 import { Input, InputGroup, InputRightElement } from "@chakra-ui/input";
 import { VStack } from "@chakra-ui/layout";
 import { useToast } from "@chakra-ui/toast";
-
+import {useNavigate} from 'react-router-dom';
 
 const SignUp = () => {
  
@@ -25,8 +23,8 @@ const SignUp = () => {
   const handleClick = () => setShow(!show);
 
   const submitHandler = async () => {
-    setPicLoading(true)
-    if(!name || !email || !password || !confirmpassword) {
+    setPicLoading(true);
+    if (!name || !email || !password || !confirmpassword) {
       toast({
         title: "Please Fill all the Feilds",
         status: "warning",
@@ -37,8 +35,7 @@ const SignUp = () => {
       setPicLoading(false);
       return;
     }
-
-    if(password !== confirmpassword) {
+    if (password !== confirmpassword) {
       toast({
         title: "Passwords Do Not Match",
         status: "warning",
@@ -48,34 +45,34 @@ const SignUp = () => {
       });
       return;
     }
-    console.log(name,email,password,pic);
+    console.log(name, email, password, pic);
     try {
-        
-        const config = {
-          headers: {
-            "Content-type" : "application/json",
-          }
-        }
-
-        const {data} = await axios.post("/api/user" , {
+      const config = {
+        headers: {
+          "Content-type": "application/json",
+        },
+      };
+      const { data } = await axios.post(
+        "/api/user",
+        {
           name,
           email,
           password,
           pic,
-         } , config
-        )
-        console.log(data);
-        toast({
-          title: "Your Account successfully created , now user can loggin",
-          status: "success",
-          duration: 5000,
-          isClosable: true,
-          position: "bottom",
-        })
-        
-        localStorage.setItem("userInfo", JSON.stringify(data));
-        setPicLoading(false);
-
+        },
+        config
+      );
+      console.log(data);
+      toast({
+        title: "Registration Successful",
+        status: "success",
+        duration: 5000,
+        isClosable: true,
+        position: "bottom",
+      });
+      localStorage.setItem("userInfo", JSON.stringify(data));
+      setPicLoading(false);
+      navigate("/chats")
     } catch (error) {
       toast({
         title: "Error Occured!",
@@ -87,7 +84,7 @@ const SignUp = () => {
       });
       setPicLoading(false);
     }
-  }
+  };
 
   const postDetails = (pics) => {
     setPicLoading(true);
@@ -204,3 +201,5 @@ const SignUp = () => {
 }
 
 export default SignUp
+
+// Your Account successfully created , now user can loggin
