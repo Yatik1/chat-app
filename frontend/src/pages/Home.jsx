@@ -44,6 +44,7 @@ const Home = () => {
       borderRadius="3xl" 
       border='1px'
       borderColor='gray.300'
+      backgroundColor="white"
       >
       <Tabs size='md' isFitted variant="soft-rounded">
         <TabList mb="1em" p={1}>
