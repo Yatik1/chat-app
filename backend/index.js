@@ -28,6 +28,10 @@ app.use('/api/message' ,messageRoutes)
 app.use(notFound)
 app.use(errorHandler)
 
-app.listen(PORT , () => {
+const server = app.listen(PORT , () => {
     console.log(`Server is on PORT ${PORT}`)
+})
+
+const io = require('socket.io')(server , {
+    
 })
