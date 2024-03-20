@@ -15,6 +15,8 @@ import {
 } from "@chakra-ui/menu";
 import { Input } from "@chakra-ui/input";
 
+import NotificationBadge from 'react-notification-badge';
+// import {CustomEffect} from 'react-notification-badge';
 import {
   Drawer,
   DrawerBody,
@@ -30,7 +32,7 @@ import { useDisclosure } from "@chakra-ui/hooks";
 import { useToast } from "@chakra-ui/toast";
 import ChatLoading from '../ChatLoading';
 import UserListItem from "../userAvatar/UserListItem"
-// import { accessChat } from '../../../../backend/controllers/chatControllers';
+import { getSender } from '../../config/ChatLogics';
 
 
 const SideDrawer = () => {
@@ -40,7 +42,7 @@ const SideDrawer = () => {
   const [loading, setLoading] = useState(false);
   const [loadingChat, setLoadingChat] = useState(false);
 
-  const {user , setSelectedChat,chats,setChats} = ChatState()
+  const {user , setSelectedChat,chats,setChats,notification , setNotification} = ChatState()
   const navigate = useNavigate()
   const { isOpen, onOpen, onClose } = useDisclosure();
   const toast = useToast()
@@ -146,9 +148,27 @@ const SideDrawer = () => {
          <div>
            <Menu>
              <MenuButton p={1}>
+               <NotificationBadge 
+                  count={notification.length}
+                  // effect = {CustomEffect}
+                />
                <BellIcon fontSize='2xl' m={1} />
              </MenuButton>
-             {/* <MenuList></MenuList> */}
+             <MenuList paddingX={2}>
+               {!notification.length && "No new Messages "}
+               
+                  {notification.map((notify) => (
+                      <MenuItem key={notify._id}
+                                onClick={() => {
+                                  setSelectedChat(notify.chat)
+                                  setNotification(notification.filter((n) => n !== notify))
+                                }}
+                      >
+                         {notify.chat.isGroupChat ? `New Message in ${notify.chat.chatName}`:`New Message from ${getSender(user,notify.chat.users)}`}
+                      </MenuItem>
+                  ))}
+               
+             </MenuList>
            </Menu>
            <Menu>
             <MenuButton as={Button} rightIcon={<ChevronDownIcon/>}>
