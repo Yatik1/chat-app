@@ -35,6 +35,7 @@ app.get('/api/message' , (req,res) => {
     res.send('messages are live now ')
 })
 
+
 app.use('/api/user' , userRoutes)
 app.use('/api/chat' , chatRoutes)
 app.use('/api/message' ,messageRoutes)
