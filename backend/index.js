@@ -25,7 +25,7 @@ app.get('/' , (req,res) => {
     res.send('APi is running on this server ! ')
 })
 
-app.use('/api//user' , userRoutes)
+app.use('/api/user' , userRoutes)
 app.use('/api/chat' , chatRoutes)
 app.use('/api/message' ,messageRoutes)
 
