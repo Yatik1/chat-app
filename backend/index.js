@@ -12,12 +12,8 @@ const { notFound, errorHandler } = require('./middleware/errorMiddleware')
 const app = express()
 app.use(express.json())
 
-const corsOptions = {
-    credentials: true , 
-    origin: 'https://chazily.vercel.app',
-  };
   
-  app.use(cors(corsOptions));
+  app.use(cors());
 
 dotenv.config()
 
