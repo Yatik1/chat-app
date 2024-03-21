@@ -13,6 +13,7 @@ const app = express()
 app.use(express.json())
 
 const corsOptions = {
+    credentials: true , 
     origin: 'https://chazily.vercel.app',
   };
   

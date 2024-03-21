@@ -46,7 +46,7 @@ const Login = () => {
       };
 
       const { data } = await axios.post(
-        "https://chat-app-9flg.onrender.com/api/user/login",
+        "http://chat-app-9flg.onrender.com/api/user/login",
         { email, password },
         config
       );
