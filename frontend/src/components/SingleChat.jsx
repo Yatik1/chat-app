@@ -16,7 +16,7 @@ import io from "socket.io-client";
 import Lottie from "react-lottie";
 import animationData from "../animations/typing.json";
 
-const ENDPOINT = "http://localhost:5000"; 
+const ENDPOINT = "https://chat-app-9flg.onrender.com"; 
 var socket,selectedChatCompare;
 
 const SingleChat = ({ fetchAgain, setFetchAgain }) => {
@@ -54,7 +54,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
       setLoading(true);
 
       const { data } = await axios.get(
-        `/api/message/${selectedChat._id}`,
+        `https://chat-app-9flg.onrender.com/api/message/${selectedChat._id}`,
         config
       );
       setMessages(data);
@@ -86,7 +86,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
         }
 
         setNewMessage("")
-        const {data} = await axios.post("/api/message" , {
+        const {data} = await axios.post("https://chat-app-9flg.onrender.com/api/message" , {
            content:newMessage,
            chatId:selectedChat._id
           } , 
