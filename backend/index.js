@@ -13,7 +13,7 @@ const app = express()
 app.use(express.json())
 
 const corsOptions = {
-    origin: 'https://chazily.vercel.app/',
+    origin: 'https://chazily.vercel.app',
   };
   
   app.use(cors(corsOptions));
