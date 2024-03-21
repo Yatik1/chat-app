@@ -21,9 +21,9 @@ app.get('/' , (req,res) => {
     res.send('APi is running on this server ! ')
 })
 
-app.use('/api/user' , userRoutes)
-app.use('/api/chat' , chatRoutes)
-app.use('/api/message' ,messageRoutes)
+app.use('/user' , userRoutes)
+app.use('/chat' , chatRoutes)
+app.use('/message' ,messageRoutes)
 
 app.use(notFound)
 app.use(errorHandler)
