@@ -1,4 +1,5 @@
 const express = require('express')
+const cors = require('cors');
 const dotenv = require('dotenv')
 const connectDB = require('./db/db')
 const userRoutes = require('./routes/userRoutes')
@@ -11,6 +12,12 @@ const { notFound, errorHandler } = require('./middleware/errorMiddleware')
 const app = express()
 app.use(express.json())
 
+const corsOptions = {
+    origin: 'https://chazily.vercel.app/',
+  };
+  
+  app.use(cors(corsOptions));
+
 dotenv.config()
 
 connectDB()
@@ -21,9 +28,9 @@ app.get('/' , (req,res) => {
     res.send('APi is running on this server ! ')
 })
 
-app.use('/user' , userRoutes)
-app.use('/chat' , chatRoutes)
-app.use('/message' ,messageRoutes)
+app.use('/api//user' , userRoutes)
+app.use('/api/chat' , chatRoutes)
+app.use('/api/message' ,messageRoutes)
 
 app.use(notFound)
 app.use(errorHandler)
