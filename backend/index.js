@@ -25,15 +25,6 @@ app.get('/' , (req,res) => {
     res.send('API is running on this deployed server ! ')
 })
 
-app.get('/api/user' , (req,res) => {
-    res.send('Users can now successfully authorized ')
-})
-app.get('/api/chat' , (req,res) => {
-    res.send('for chats')
-})
-app.get('/api/message' , (req,res) => {
-    res.send('messages are live now ')
-})
 
 
 app.use('/api/user' , userRoutes)
