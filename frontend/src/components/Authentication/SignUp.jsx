@@ -65,6 +65,7 @@ const SignUp = () => {
       console.log(data);
       toast({
         title: "Registration Successful",
+        description: "Your account has been successfully registered. Please log in to continue.",
         status: "success",
         duration: 5000,
         isClosable: true,
